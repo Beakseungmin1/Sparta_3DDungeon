@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7917358000284371596}
   - component: {fileID: 7106021015054645790}
   - component: {fileID: 3287337473874091862}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rocket_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,8 @@ GameObject:
   - component: {fileID: 1332747618715011451}
   - component: {fileID: 8205244199913030452}
   - component: {fileID: 4924658799935308133}
-  m_Layer: 0
+  - component: {fileID: 8793786059909366794}
+  m_Layer: 7
   m_Name: item_jumpup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,3 +152,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemData: {fileID: 11400000, guid: 7684f5abfb5aa074abbbfa085a6a8f0e, type: 2}
+--- !u!114 &8793786059909366794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000658102303060398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c2aa4f86ca6384e9a9c6d234cdef24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSpeed: 8
+  bounceAmplitude: 0.05
+  rotationSpeed: 90

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class UIInventory : MonoBehaviour
     public Transform dropPosition;
 
     [Header("Select item")]
+    public Image selectedItemicon;
     public TextMeshProUGUI selectedItemName;
     public TextMeshProUGUI selectedItemDescription;
     public TextMeshProUGUI selectedStatName;
@@ -58,6 +60,7 @@ public class UIInventory : MonoBehaviour
 
     void ClearSelectedItemWindow()
     {
+        selectedItemicon.gameObject.SetActive(false);
         selectedItemName.text = string.Empty;
         selectedItemDescription.text = string.Empty;
         selectedStatName.text = string.Empty;
@@ -161,7 +164,7 @@ public class UIInventory : MonoBehaviour
 
     void ThrowItem(ItemData data)
     {
-        Instantiate(data.dropPrefab, dropPosition.position, Quaternion.Euler(Vector3.one * Random.value * 360));
+        Instantiate(data.dropPrefab, dropPosition.position, Quaternion.identity);//Quaternion.Euler(Vector3.one * Random.value * 360));
     }
 
     public void SelectItem(int index)
@@ -170,6 +173,9 @@ public class UIInventory : MonoBehaviour
 
         selectedItem = slots[index].Item;
         selectedItemIndex = index;
+
+        selectedItemicon.gameObject.SetActive(true);
+        selectedItemicon.sprite = selectedItem.icon;
 
         selectedItemName.text = selectedItem.displayName;
         selectedItemDescription.text = selectedItem.description;

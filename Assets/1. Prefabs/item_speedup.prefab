@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3545646003149475450}
   - component: {fileID: 6026852611414849418}
   - component: {fileID: 3789133252933528719}
-  m_Layer: 0
+  - component: {fileID: 6986582592344065320}
+  m_Layer: 7
   m_Name: item_speedup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,6 +69,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemData: {fileID: 11400000, guid: d8fe9a8f3633c0c418b9e47244dee1f2, type: 2}
+--- !u!114 &6986582592344065320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2200885397137829492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c2aa4f86ca6384e9a9c6d234cdef24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSpeed: 8
+  bounceAmplitude: 0.05
+  rotationSpeed: 90
 --- !u!1 &3275986415216893507
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,7 +95,7 @@ GameObject:
   - component: {fileID: 7357564893957570855}
   - component: {fileID: 7238804149276347598}
   - component: {fileID: 6919802932880392645}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Power_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
