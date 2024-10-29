@@ -5,7 +5,7 @@ using UnityEngine;
 public class Jumping_plat : MonoBehaviour
 {
     Rigidbody Rigidbody;
-    private float jumpingPower = 30;
+    private float jumpingPower = 600;
 
     private void OnCollisionEnter(Collision collision)
     {
