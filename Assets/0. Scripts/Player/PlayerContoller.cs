@@ -8,7 +8,9 @@ using UnityEngine.InputSystem;
 public class PlayerContoller : MonoBehaviour
 {
     [Header("Moverment")]
-    public float moveSpeed;
+    public float curMoveSpeed;
+    private float defaultspeed;
+    public float RunnincreaseSpeed;
     public float jumpPower;
     private Vector2 curMovementInput;
     public LayerMask groundLayerMask;
@@ -21,6 +23,7 @@ public class PlayerContoller : MonoBehaviour
     public float lookSensitivity;
     private Vector2 mouseDelta;
     public bool canLook = true;
+    public bool isSprint = false;
 
     public Action inventory;
     private Rigidbody _rigidbody;
@@ -49,7 +52,7 @@ public class PlayerContoller : MonoBehaviour
     private void Move()
     {
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;
+        dir *= curMoveSpeed;
         dir.y = _rigidbody.velocity.y;
 
         _rigidbody.velocity = dir;
@@ -86,6 +89,21 @@ public class PlayerContoller : MonoBehaviour
         if (context.phase == InputActionPhase.Started && IsGrounded())
         {
             _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+        }
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed && CharacterManager.Instance.Player.condition.Stamina.curValue > 0f)
+        {
+            defaultspeed = curMoveSpeed;
+            curMoveSpeed += RunnincreaseSpeed;
+            isSprint = true;
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            curMoveSpeed = defaultspeed;
+            isSprint = false;
         }
     }
 

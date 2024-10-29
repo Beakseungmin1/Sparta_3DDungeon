@@ -16,17 +16,24 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
     Condition health { get { return uiCondition.health; } }
     Condition stamina { get { return uiCondition.stamina; } }
 
+    public Condition Stamina
+    {
+        get { return stamina; }
+    }
+
     public event Action onTakeDamage;
+
+    private float lossStaminaWhileRun = 15f;
 
     void Update()
     {
         health.Add(health.passiveValue * Time.deltaTime);
         stamina.Add(stamina.passiveValue * Time.deltaTime);
 
-        //if (hunger.curValue == 0f)
-        //{
-        //    health.Subtract(noHungerHealthDecay * Time.deltaTime);
-        //}
+        if (CharacterManager.Instance.Player.controller.isSprint)
+        {
+            stamina.Subtract(lossStaminaWhileRun * Time.deltaTime);
+        }
 
         if (health.curValue == 0f)
         {
@@ -47,9 +54,9 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
 
     private IEnumerator ModifyValue(float value, float duration)
     {
-        CharacterManager.Instance.Player.controller.moveSpeed += value; // 값 증가
+        CharacterManager.Instance.Player.controller.curMoveSpeed += value; // 값 증가
         yield return new WaitForSeconds(duration); // 대기
-        CharacterManager.Instance.Player.controller.moveSpeed -= value; // 원래 값으로 복구
+        CharacterManager.Instance.Player.controller.curMoveSpeed -= value; // 원래 값으로 복구
     }
 
     public void JumpBoost(float value, float duration)

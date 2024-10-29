@@ -4578,6 +4578,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 309160a3-64d7-4c06-beca-4c17e803e811
     m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1336127296}
+        m_TargetAssemblyTypeName: PlayerContoller, Assembly-CSharp
+        m_MethodName: OnSprint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 806810a0-e958-40c4-bd4d-bbe4ec1e540b
+    m_ActionName: Player/Sprint[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -4595,7 +4611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29100e4b7272d9458d7c87fbb93f785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  curMoveSpeed: 5
+  RunnincreaseSpeed: 3
   jumpPower: 80
   groundLayerMask:
     serializedVersion: 2
@@ -4605,6 +4622,7 @@ MonoBehaviour:
   maxXLook: 65
   lookSensitivity: 0.2
   canLook: 1
+  isSprint: 0
 --- !u!114 &1336127297
 MonoBehaviour:
   m_ObjectHideFlags: 0
