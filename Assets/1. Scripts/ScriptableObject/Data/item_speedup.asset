@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93ff7595c3551dc469612dd57a8a7595, type: 3}
-  m_Name: item_jumpup
+  m_Name: item_speedup
   m_EditorClassIdentifier: 
-  displayName: "\uC810\uD504\uC5C5"
-  description: "\uC810\uD504\uB825\uC774 \uC99D\uAC00\uD55C\uB2E4"
+  displayName: "\uC2A4\uD53C\uB4DC\uC5C5"
+  description: "10\uCD08\uB3D9\uC548 \uC2A4\uD53C\uB4DC\uAC00 \uC99D\uAC00\uD55C\uB2E4"
   type: 1
-  icon: {fileID: -1416301243, guid: 307db83f77aefbc4a862dc08c339f7b2, type: 3}
-  dropPrefab: {fileID: 1000658102303060398, guid: 21b90ae833512294b9f6bc606f900b33, type: 3}
+  icon: {fileID: -126180286, guid: 307db83f77aefbc4a862dc08c339f7b2, type: 3}
+  dropPrefab: {fileID: 2200885397137829492, guid: 0af34c2815aaefe4b92240fb09cf6b94, type: 3}
   canStack: 0
   maxStackAmount: 0
   consumables:
-  - type: 2
-    value: 50
+  - type: 1
+    value: 5
     duration: 10
   equipPrefab: {fileID: 0}

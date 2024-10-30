@@ -17,6 +17,8 @@ public class PlayerContoller : MonoBehaviour
 
     [Header("Look")]
     public Transform CameraContainer;
+    public GameObject FirstCamera;
+    public GameObject ThirdCamera;
     public float minXLook;
     public float maxXLook;
     private float camCurXRot;
@@ -105,6 +107,25 @@ public class PlayerContoller : MonoBehaviour
             curMoveSpeed = defaultspeed;
             isSprint = false;
         }
+    }
+
+    public void OnChangeThirdView(InputAction.CallbackContext context)
+    {
+        if(isThird())
+        {
+            ThirdCamera.SetActive(false);
+            FirstCamera.SetActive(true);
+        }
+        else
+        {
+            ThirdCamera.SetActive(true);
+            FirstCamera.SetActive(false);
+        }
+    }
+
+    public bool isThird()
+    {
+        return ThirdCamera.activeInHierarchy;
     }
 
     bool IsGrounded()
