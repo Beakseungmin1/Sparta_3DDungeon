@@ -11,6 +11,12 @@ public enum ItemType
     Resource
 }
 
+public enum EquipType
+{
+    Weapon,
+    Wing,
+}
+
 public enum ConsumableType
 {
     Health,
@@ -27,6 +33,12 @@ public class ItemDataConsumbale
     public float duration;
 }
 
+[Serializable]
+public class ItemDataEquip
+{
+    public EquipType type;
+    public float value;
+}
 
 [CreateAssetMenu(fileName = "item", menuName = "New Item")]
 public class ItemData : ScriptableObject
@@ -47,5 +59,6 @@ public class ItemData : ScriptableObject
 
     [Header("Equip")]
     public GameObject equipPrefab;
+    public ItemDataEquip[] Equips;
 
 }

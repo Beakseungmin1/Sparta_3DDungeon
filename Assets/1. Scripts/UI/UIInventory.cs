@@ -248,7 +248,23 @@ public class UIInventory : MonoBehaviour
 
         slots[selectedItemIndex].equipped = true;
         curEquipIndex = selectedItemIndex;
-        //CharacterManager.Instance.Player.equip.EquipNew(selectedItem);
+        CharacterManager.Instance.Player.equip.EquipNew(selectedItem);
+        if (selectedItem.type == ItemType.Equipable)
+        {
+            for (int i = 0; i < selectedItem.Equips.Length; i++)
+            {
+                switch (selectedItem.Equips[i].type)
+                {
+                    //무기추가하면 수정예정
+                    case EquipType.Weapon:
+                        condition.Heal(selectedItem.Equips[i].value);
+                        break;
+                    case EquipType.Wing:
+                        controller.AddJump(selectedItem.Equips[i].value);
+                        break;
+                }
+            }
+        }
         UpdateUI();
 
         SelectItem(selectedItemIndex);
@@ -257,7 +273,23 @@ public class UIInventory : MonoBehaviour
     void UnEquip(int index)
     {
         slots[index].equipped = false;
-        //CharacterManager.Instance.Player.equip.UnEquip();
+        CharacterManager.Instance.Player.equip.UnEquip();
+        if (selectedItem.type == ItemType.Equipable)
+        {
+            for (int i = 0; i < selectedItem.Equips.Length; i++)
+            {
+                switch (selectedItem.Equips[i].type)
+                {
+                    //무기추가하면 수정예정
+                    case EquipType.Weapon:
+                        condition.Heal(selectedItem.Equips[i].value);
+                        break;
+                    case EquipType.Wing:
+                        controller.DisCountJump(selectedItem.Equips[i].value);
+                        break;
+                }
+            }
+        }
         UpdateUI();
 
         if(selectedItemIndex == index)

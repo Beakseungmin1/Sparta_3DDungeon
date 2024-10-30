@@ -12,6 +12,8 @@ public class PlayerContoller : MonoBehaviour
     private float defaultspeed;
     public float RunnincreaseSpeed;
     public float jumpPower;
+    private float curJumpCount;
+    private float JumpCountLimit;
     private Vector2 curMovementInput;
     public LayerMask groundLayerMask;
 
@@ -88,10 +90,25 @@ public class PlayerContoller : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && IsGrounded())
+        if (context.phase == InputActionPhase.Started && IsGrounded() || context.phase == InputActionPhase.Started && curJumpCount < JumpCountLimit)
         {
             _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+            curJumpCount++;
         }
+        if (IsGrounded())
+        {
+            curJumpCount = 0;
+        }
+    }
+
+    public void AddJump(float value)
+    {
+        JumpCountLimit += value;
+    }
+
+    public void DisCountJump(float value)
+    {
+        JumpCountLimit -= value;
     }
 
     public void OnSprint(InputAction.CallbackContext context)
